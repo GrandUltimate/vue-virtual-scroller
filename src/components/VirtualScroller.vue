@@ -163,7 +163,9 @@ export default {
 
   methods: {
     updateVisibleItems (force = false) {
+      console.log('######### updateVisibleItems #########')
       if (!this.$_updateDirty) {
+        console.log('######### updateDirty #########')
         this.$_updateDirty = true
         this.$nextTick(() => {
           this.$_updateDirty = false
@@ -174,6 +176,7 @@ export default {
           const itemHeight = this.itemHeight
           let containerHeight, offsetTop
           if (scroll) {
+            console.log('######### update->scroll #########')
             let startIndex = -1
             let endIndex = -1
 
@@ -293,6 +296,7 @@ export default {
       if (!this.$_scrollDirty) {
         this.$_scrollDirty = true
         requestAnimationFrame(() => {
+          console.log('######### requestAnimationFrame #########')
           this.$_scrollDirty = false
           this.updateVisibleItems()
         })
